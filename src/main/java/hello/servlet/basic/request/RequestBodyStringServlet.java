@@ -20,7 +20,7 @@ public class RequestBodyStringServlet extends HttpServlet {
         // 바이트 코드로 얻기
         ServletInputStream inputStream = request.getInputStream();
 
-        
+        // 바이트 코드를 스트링으로 변환
         String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
 
         System.out.println("messageBody = " + messageBody);
