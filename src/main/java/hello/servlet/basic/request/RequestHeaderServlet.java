@@ -1,7 +1,5 @@
 package hello.servlet.basic.request;
 
-import org.springframework.http.converter.json.GsonBuilderUtils;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
