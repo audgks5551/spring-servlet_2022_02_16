@@ -6,13 +6,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Enumeration;
 
 /*
 * 1. 파라미터 전송 가능
 * http://localhost:89/request-param?username=hello&age=20
-*
+* GET, POST 똑같이 추출 가능
 */
+
 @WebServlet(name = "requestParamServlet", urlPatterns = "/request-param")
 public class RequestParamServlet extends HttpServlet {
 
