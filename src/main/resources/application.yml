@@ -1,5 +1,5 @@
 server:
-  port: 89
+  port: 90
 
 # Headers와 Payload가 콘솔에 나타남
 logging.level.org.apache.coyote.http11: debug
