@@ -28,11 +28,13 @@ public class FrontControllerServletV1 extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("FrontControllerServletV1.service");
 
-        String requestURI = request.getRequestURI();
+        String requestURI = request.getRequestURI(); // URI 획득
+        // 예 ) URI = /front-controller/v1/members/new-form
 
-        ControllerV1 controller = controllerMap.get(requestURI);
+        ControllerV1 controller = controllerMap.get(requestURI); // 요청에서 입력받은 URI와 컨트롤러의 key와 일치하는 컨트롤러 찾기
+        // 예) "/front-controller/v1/members/new-form" == "/front-controller/v1/members/new-form" => new MemberFormControllerV1() 반환
 
-        if(controller == null) {
+        if(controller == null) { // 컨트롤러를 찾을 수 없을 때는 http 404를 응답한다.
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
