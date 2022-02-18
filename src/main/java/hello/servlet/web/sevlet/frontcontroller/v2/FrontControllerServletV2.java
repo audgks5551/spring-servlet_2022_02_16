@@ -47,6 +47,9 @@ public class FrontControllerServletV2 extends HttpServlet {
 
         // v1 버전에서는 controller에서 페이지 이동을 하였는데
         // v2 버전에서는 servlet에서 controller.process를 호출하여 실제 경로를 찾아 페이지 이동을 담당한다.
-        // HttpServletRequest와 HttpServletResponse는 서블릿내에서는 전역객체이다.?(아직확실하지않음)
+        // 서블릿 컨테이너가 서블릿을 생성해주고
+        // 서블릿은 HttpServletReqeust와 HttpServletResponse를 생성
+        // 그러므로 HttpServletRequest와 HttpServletResponse는 한 서블릿내에서는 전역객체이다.?(아직확실하지않음)
+        // 서블릿은 url주소를 찾고 사용자가 원하는 컨트롤러를 찾아 비지니스 로직 수행
     }
 }
