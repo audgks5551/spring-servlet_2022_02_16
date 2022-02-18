@@ -33,18 +33,20 @@ public class FrontControllerServletV2 extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("FrontControllerServletV2.service");
 
-        String requestURI = request.getRequestURI();
+        String requestURI = request.getRequestURI(); // 요청에서 URI 찾기
 
-        ControllerV2 controller = controllerMap.get(requestURI);
+        ControllerV2 controller = controllerMap.get(requestURI); // 필요한 컨트롤러 찾기
 
-        if(controller == null) {
+        if(controller == null) { // 찾는 컨트롤러가 없으면 404 반환
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
 
-        MyView view = controller.process(request, response);
-        view.render(request, response);
+        MyView view = controller.process(request, response); // 실제 경로 찾음
+        view.render(request, response); // 페이지 이동
 
-
+        // v1 버전에서는 controller에서 페이지 이동을 하였는데
+        // v2 버전에서는 servlet에서 controller.process를 호출하여 실제 경로를 찾아 페이지 이동을 담당한다.
+        // HttpServletRequest와 HttpServletResponse는 서블릿내에서는 전역객체이다.?(아직확실하지않음)
     }
 }
